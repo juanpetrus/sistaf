@@ -1,0 +1,31 @@
+<%= simple_form_for(@responsavel) do |f| %>
+<%= f.error_notification %>
+
+<!-- Basic Card Example -->
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-primary">Criando Responsável</h6>
+  </div>
+  <div class="card-body">
+    <div class="row"> 
+        <div class="col-md-4">
+            <%= f.input :nome, input_html: {maxlength: 60} %>
+        </div>
+        <div class="col-md-4">
+            <%= f.input :email %>
+        </div>
+        <div class="col-md-4">
+            <%= f.input :cpf, input_html: {class: 'cpf'} %>
+        </div>
+      </div>
+
+      <div class="text-left">
+        <%= f.button :submit, class: 'btn btn-primary legitRipple' %>
+        <%= link_to responsavels_path, class: "btn btn-danger heading-btn legitRipple" do %>
+        <strong>Cancelar</strong>
+        <% end %>
+      </div>
+  </div>
+</div>
+
+<% end %>

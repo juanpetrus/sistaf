@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  status: MyString
+  titulo: MyString
+  descricao: MyText
+  responsavel: one
+  data: 2019-08-25
+  prioridade: MyString
+
+two:
+  status: MyString
+  titulo: MyString
+  descricao: MyText
+  responsavel: two
+  data: 2019-08-25
+  prioridade: MyString

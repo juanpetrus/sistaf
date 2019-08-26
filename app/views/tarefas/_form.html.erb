@@ -1,0 +1,46 @@
+<%= simple_form_for(@tarefa) do |f| %>
+<%= f.error_notification %>
+<ul>
+  <% @tarefa.errors.full_messages.each do |msg| %>
+  <li><%= msg %> </li>
+  <% end %>
+  </ul>
+  
+<!-- Basic Card Example -->
+<div class="card shadow mb-4">
+  <div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold text-primary">Agendando Tarefa</h6>
+  </div>
+  <div class="card-body">
+    <div class="row"> 
+        <div class="col-md-12">
+          <%= f.association :responsavel, include_blank: false, prompt: "Selecione Responsavel", input_html:{class:'form-control'} %>
+        </div>
+        <div class="col-md-8">
+            <%= f.input :titulo, input_html: {maxlength: 60} %>
+        </div>
+
+        <div class="col-md-4">
+          <%= f.input :data, as: :string, html5: true, input_html: {maxlength: 60, class: 'datetime', autocomplete: 'off'} %>
+        </div>
+        <div class="col-md-12">
+            <%= f.input :descricao %>
+        </div>
+        <div class="col-md-6">
+            <%= f.input :status, :as => :select, :collection => Tarefa.statuses.keys.to_a, include_blank: false, prompt: "Selecione Status", input_html:{class:'form-control'} %>
+        </div>
+        <div class="col-md-6">
+            <%= f.input :prioridade, :as => :select, :collection => Tarefa.prioridades.keys.to_a, include_blank: false, prompt: "Selecione Prioridade", input_html:{class:'form-control'} %>
+        </div>
+      </div>
+
+      <div class="text-left">
+        <%= f.button :submit, class: 'btn btn-primary legitRipple' %>
+        <%= link_to :back, class: "btn btn-danger heading-btn legitRipple" do %>
+        <strong>Cancelar</strong>
+        <% end %>
+      </div>
+  </div>
+</div>
+
+<% end %>

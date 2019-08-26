@@ -1,0 +1,57 @@
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+  <h1 class="h3 mb-0 text-gray-800">Responsáveis</h1>
+  <%= link_to new_responsavel_path, class: 'd-none d-sm-inline-block btn btn-md btn-primary shadow-sm' do  %>
+  <i class="fas fa-plus"></i> Nova Responsável
+  <% end %>
+</div>
+
+<!-- Collapsable Card Example -->
+<div class="card shadow mb-4">
+  <!-- Card Header - Accordion -->
+  <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button"
+    aria-expanded="true" aria-controls="collapseCardExample">
+    <h6 class="m-0 font-weight-bold text-primary">Lista de Responsáveis</h6>
+  </a>
+  <!-- Card Content - Collapse -->
+  <div class="collapse show" id="collapseCardExample">
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>E-mail</th>
+              <th>CPF</th>
+              <th>Ação</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @responsavels.each do |responsavel| %>
+            <tr>
+              <td><%= responsavel.nome %></td>
+              <td><%= responsavel.email %></td>
+              <td><%= responsavel.cpf %></td>
+              <td>
+                <%= link_to responsavel_path(responsavel), class: 'btn btn-info' do %>
+                <i class='far fa-eye'></i>
+                <% end %>
+                <%= link_to edit_responsavel_path(responsavel), class: 'btn btn-warning' do %>
+                <i class="fas fa-edit"></i>
+                <% end %>
+                <%= link_to responsavel_path(responsavel), class: "btn btn-danger heading-btn", method: :delete, data: { confirm: 'Deseja apagar?' } do %>
+                <i class="fas fa-trash-alt"></i>
+                <% end %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <div align="center">
+        <%#= pagy_nav_bootstrap(@pagy).html_safe %>
+      </div>
+    </div>
+  </div>
+</div>
