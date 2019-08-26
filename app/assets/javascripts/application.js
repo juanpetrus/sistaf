@@ -45,25 +45,7 @@ $(document).on("turbolinks:load", function () {
       showOptions: {direction: "down"}
     });
   
-    $('.timedate').datetimepicker({
-      format: 'dd/mm/yyyy hh:ii',
-      language: 'pt-BR',
-      todayHighlight: true,
-      autoclose: true,
-      showOptions: {direction: "down"}
-    });
-  
-    $(".money").maskMoney({
-      prefix: 'R$ ',
-      allowNegative: false,
-      thousands: '.',
-      decimal: ','
-      }).trigger('mask.maskMoney');
-  
     $('.date').mask('00/00/0000');
-    $('.time').mask('00/00/0000 00:00');
-    $('.telefone').mask('(99) 9 9999-9999');
     $('.cpf').mask('000.000.000-00', { reverse: true },  { placeholder: "000.000.000-00" });
-    $('.telefone').mask('(99) 9 9999-9999'); 
        
   });
